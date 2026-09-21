@@ -23,9 +23,9 @@ jobs:
         BRAINPOP_USERNAME: ${{ secrets.BRAINPOP_USERNAME }}
         BRAINPOP_PASSWORD: ${{ secrets.BRAINPOP_PASSWORD }}
         BRAINPOP_EMAIL: ${{ secrets.BRAINPOP_EMAIL }}
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      # No report artifact is uploaded: Playwright's trace/report records the
+      # literal values passed to fill() (including the real login
+      # credentials used to authenticate), and this repo is public — an
+      # uploaded artifact would make those credentials downloadable by
+      # anyone. Debug locally with `npm run report` / `npm run test:ui`
+      # instead, where the report never leaves your machine.
