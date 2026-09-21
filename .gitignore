@@ -15,5 +15,6 @@ node_modules/
 # OS
 .DS_Store
 
-# Local session log
+# Local session log / personal reference (not part of the submission)
 ClaudeAuditLog.md
+personalNotes.md
